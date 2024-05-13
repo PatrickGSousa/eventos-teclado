@@ -1,0 +1,38 @@
+<!-- Arquivo MovimentandoNaveMouse -->
+<html>
+    <head>
+        <title>Eventos de mouse</title>
+        <script src="gamesWeb.js"></script>
+    </head>
+<body>
+    <canvas id="canv" width="800" height="700">
+        Este browser não suporta o objeto canvas do HTML5
+    </canvas>
+<script>
+    canvas = document.getElementByld("canv");
+    ctx = canvas.getContext("2d");
+    nave = new Image();
+    nave.src = "img/nave.png";
+    x = 400 - nave.width/2;
+    nave.onload = function() {
+        ctx.drawImage(nave, x, 700-160)
+    }
+
+    canvas.onmousemove = function (e) {
+        var col = e.pageX; // - this.offsetLeft;
+        var lin = e.pageY; // - this.offsetTop;
+        movimentaNaveMouse(col - 80, lin);
+    }
+    canvas.onmousedown = function (e) {
+        var col = e.pageX; // - this.offsetLeft;
+        disparaTiro(col 700-100);
+    }
+    </script>
+</body>
+</html>
+
+// Função no arquivo gamesWeb.js
+function movimentaNaveMouse(col, lin) {
+    ctx.clearRect(col-50, 700-160, 260, 160);
+    ctx.drawnImage(nave, col, 700-160);
+}
